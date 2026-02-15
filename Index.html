@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is My UK Grade Good Enough for MS CS in the USA?</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="Check if your UK percentage or classification is competitive for MS Computer Science programs in the USA. Includes GPA conversion and admissions insight." >
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> Is my UK grade Good Enough for MS CS in the USA?</h1>
+            <p class="sub">
+                Wondering if a UK first, 2:1, 2:2, or 65% is competitive for MS Computer Science programs in the United States?
+                Use this free tool to estimate your US GPA and get a quick competitiveness hint.
+            </p>
+        </header>
+
+        <section class="card">
+            <h2>Calculator</h2>
+
+            <label for="ukGrade"> UK Percentage (optional)</label>
+            <input type="number" id="ukGrade" placeholder="e.g. 65" min="0" max="100" />
+            
+            <div class="or">OR</div>
+
+            <label for="'ukClass"> UK classification</label>
+            <select id="ukClass">
+                <option value=""> Select (optional)</option>
+                <option value="first"> First Class (70%+)</option>
+                <option value="twoone"> Upper Second / 2:1 (60-69%)</option>
+                <option value="twotwo"> Lower Second / 2:2 (50-59%)</option>
+                <option value="third"> Third (40-49%)</option>
+            </select>
+
+            <label for="tier"> Target University Tier</label>
+            <select id="tier">
+                <option value="10"> Top 10</option>
+                <option value="25"> Top 25</option>
+                <option value="50"> Top 50</option>
+            </select>
+
+            <button id="btn"> Analyse</button>
+
+            <div id="result" class="result" ></div>
+        </section>
+
+        <section class="card">
+            <h2> Important notes</h2>
+
+            <ul>
+                <li>This is an approximate conversion. US universities vary in how they evaluate international grades.</li>
+                <li>MS CS admissions are holistic. Research, internships, SOP, and letters matter a lot.</li>
+                <li>Use this as a guide, not an official evaluation.</li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            <p>Free tool for UK CS students applying to US Master's programs. </p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
