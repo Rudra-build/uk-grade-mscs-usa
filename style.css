@@ -90,3 +90,21 @@ button:hover {
   color: #666;
   margin: 18px 0 30px;
 }
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.secondary {
+  background: #fff;
+  color: #111;
+  border: 1px solid #d7dce3;
+}
+
+.secondary:hover {
+  background: #f2f4f7;
+  opacity: 1;
+}
