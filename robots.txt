@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rudra-build.github.io/uk-grade-mscs-usa/sitemap.xml
