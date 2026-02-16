@@ -39,7 +39,15 @@ function analyse()
         }
 
     const gpa = ukToUsGpa(ukPercent);
-    const insight = competitivenessHint(gpa, tier);
+    const insight = competitivenessHint(gpa, tier, profile);
+
+    const plainText =
+      `Your Percentage: ${ukPercent}%\n` +
+      `Estimated US GPA: ${gpa.toFixed(1)}\n` +
+      `MS CS competitiveness hint: ${insight}\n\n` +
+      `Note: This is an estimate.`;
+
+    result.dataset.plain = plainText;
 
     result.innerHTML = `
       <h3>Results</h3>
@@ -51,7 +59,7 @@ function analyse()
       </p>
     `;
   }
-    result.dataset.plain = plainText;
+    
 
 function ukToUsGpa(uk) 
   {
@@ -67,33 +75,40 @@ function ukToUsGpa(uk)
     return 1.7;
   }
 
-function competitivenessHint(gpa, tier) 
+function competitivenessHint(gpa, tier, profile) 
   {
-    if (tier === "10") 
+    let base;
+    let label;
+
+    if (tier === "10") { base = 3.7; label = "Top 10"; }
+    else if (tier === "25") { base = 3.5; label = "Top 25"; }
+    else { base = 3.3; label = "Top 50"; }
+
+    const threshold = adjustedThreshold(base, profile);
+
+    if (gpa >= threshold) 
       {
-        return gpa >= 3.7
-          ? "Competitive for Top 10 MS CS programs (GPA-wise)."
-          : "Below typical Top 10 range. Strong research/internships + standout SOP can help.";
+        return `Competitive for ${label} MS CS programs (GPA-wise).`;
       }
-    if (tier === "25") 
+
+    if (label === "Top 10") 
       {
-        return gpa >= 3.5
-          ? "Competitive for Top 25 MS CS programs (GPA-wise)."
-          : "Slightly below typical Top 25 range. Profile strength matters a lot.";
+        return "Below typical Top 10 range. Strong research/internships + standout SOP can help.";
       }
-    // Top 50
-    return gpa >= 3.3
-      ? "Competitive for Top 50 MS CS programs (GPA-wise)."
-      : "May be below typical Top 50 range. Consider strengthening projects, research, and recommendations.";
+
+    if (label === "Top 25") 
+      {
+        return "Slightly below typical Top 25 range. Profile strength matters a lot.";
+      }
+    return "May be below typical Top 50 range. Consider strengthening projects, research, and recommendations.";
   }
 
-function adjustedThreshold(base, profile) {
-  if (profile === "strong") return base - 0.2;
-  if (profile === "average") return base - 0.1;
-  return base; // unknown or limited
-}
-
-let plainText = `Input: ${uk}%\nEstimated US GPA: ${gpa}\nHint: ${competitiveness}\n\nNote: This is an estimate.`;
+function adjustedThreshold(base, profile) 
+  {
+    if (profile === "strong") return base - 0.2;
+    if (profile === "average") return base - 0.1;
+    return base; // unknown or limited
+  }
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
   const result = document.getElementById("result");
