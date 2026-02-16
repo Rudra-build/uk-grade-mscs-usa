@@ -41,7 +41,7 @@ function analyse()
 
     result.innerHTML = `
       <h3>Results</h3>
-      <p><strong>Percentage:</strong> ${ukPercent}%</p>
+      <p><strong> Your Percentage:</strong> ${ukPercent}%</p>
       <p><strong>Estimated US GPA:</strong> ${gpa.toFixed(1)}</p>
       <p><strong>MS CS competitiveness hint:</strong> ${insight}</p>
       <p style="color:#555; margin-top:10px;">
