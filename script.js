@@ -2,6 +2,8 @@ document.getElementById("btn").addEventListener("click", analyse);
 
 function analyse() 
   {
+    let profile = document.getElementById("profile").value;
+    
     const ukGradeRaw = document.getElementById("ukGrade").value;
     const ukClass = document.getElementById("ukClass").value;
     const tier = document.getElementById("tier").value;
@@ -49,6 +51,7 @@ function analyse()
       </p>
     `;
   }
+    result.dataset.plain = plainText;
 
 function ukToUsGpa(uk) 
   {
@@ -83,3 +86,44 @@ function competitivenessHint(gpa, tier)
       ? "Competitive for Top 50 MS CS programs (GPA-wise)."
       : "May be below typical Top 50 range. Consider strengthening projects, research, and recommendations.";
   }
+
+function adjustedThreshold(base, profile) {
+  if (profile === "strong") return base - 0.2;
+  if (profile === "average") return base - 0.1;
+  return base; // unknown or limited
+}
+
+let plainText = `Input: ${uk}%\nEstimated US GPA: ${gpa}\nHint: ${competitiveness}\n\nNote: This is an estimate.`;
+
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  const result = document.getElementById("result");
+  const text = result.dataset.plain;
+
+  if (!text) return alert("Run the analysis first.");
+
+  try {
+    await navigator.clipboard.writeText(text);
+    alert("Copied!");
+  } catch (e) {
+    alert("Copy failed. Try manually selecting the text.");
+  }
+});
+
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const url = window.location.href;
+  const title = document.title;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({ title, url });
+      return;
+    } catch (e) {}
+  }
+
+  try {
+    await navigator.clipboard.writeText(url);
+    alert("Link copied!");
+  } catch (e) {
+    prompt("Copy this link:", url);
+  }
+});
