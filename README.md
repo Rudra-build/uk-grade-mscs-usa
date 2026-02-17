@@ -14,7 +14,7 @@ So I built a small tool that:
 - Gives a competitiveness score for Top 10 / Top 25 / Top 50 programs  
 - Suggests practical next steps to strengthen your profile  
 
-This is not an official conversion tool — just a realistic guide based on common grading interpretations and typical expectations.
+This is not an official conversion tool. Just a realistic guide based on common grading interpretations and typical expectations.
 
 ---
 
@@ -28,7 +28,7 @@ Simple stack:
 
 All ideas, logic, and code were written by me.
 
-I did use AI to help structure and clean up the content so it reads better and is easier to understand — but the project concept and implementation are entirely my own.
+I did use AI to help structure and clean up the content so it reads better and is easier to understand, but the project concept and implementation are entirely my own.
 
 ---
 
