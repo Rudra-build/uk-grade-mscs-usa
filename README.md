@@ -15,6 +15,7 @@ So I built a small tool that:
 - Suggests practical next steps to strengthen your profile
 
 Live site:
+
 https://rudra-build.github.io/uk-grade-mscs-usa/
 
 This is not an official conversion tool. Just a realistic guide based on common grading interpretations and typical expectations.
