@@ -12,7 +12,10 @@ I kept overthinking questions like:
 So I built a small tool that:
 - Estimates a US-style GPA from a UK grade  
 - Gives a competitiveness score for Top 10 / Top 25 / Top 50 programs  
-- Suggests practical next steps to strengthen your profile  
+- Suggests practical next steps to strengthen your profile
+
+Live site:
+https://rudra-build.github.io/uk-grade-mscs-usa/
 
 This is not an official conversion tool. Just a realistic guide based on common grading interpretations and typical expectations.
 
